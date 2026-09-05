@@ -7,7 +7,7 @@ npm run dev
 npm run deploy
 ```
 
-Set `115_COOKIE` and `115_CID_LIST` as Worker secrets/variables. `115_CID_LIST` accepts the list format shown in `.env.example` or comma-separated folder CIDs. For local Wrangler development, copy `.env.example` to `.dev.vars` and fill in the real values.
+Set `COOKIE_115` and `CID_LIST_115` as Worker secrets/variables. `CID_LIST_115` accepts the list format shown in `.env.example` or comma-separated folder CIDs. For local Wrangler development, copy `.env.example` to `.dev.vars` and fill in the real values.
 
 `GET /pic` recursively searches the configured 115 folders, chooses a random picture, and streams it back. The endpoint returns only image bytes; it does not expose the 115 cookie or download URL.
 
@@ -18,8 +18,8 @@ The same `src/index.ts` app is also a valid Vercel Hono entry: Vercel detects th
 1. Push this repository to GitHub/GitLab/Bitbucket and import it at [vercel.com/new](https://vercel.com/new). Vercel auto-detects the project (framework: Hono); no build/output overrides are required.
 2. Add the environment variables in the Vercel project dashboard (**Settings → Environment Variables**), same names/values as the Cloudflare secrets:
 
-   - `115_COOKIE` — the 115 account cookie used by the SDK.
-   - `115_CID_LIST` — the same JSON-array or comma-separated folder CID list from `.env.example`.
+   - `COOKIE_115` — the 115 account cookie used by the SDK.
+   - `CID_LIST_115` — the same JSON-array or comma-separated folder CID list from `.env.example`.
 
 3. Deploy and visit `https://<your-project>.vercel.app/` and `https://<your-project>.vercel.app/pic`.
 

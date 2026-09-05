@@ -3,8 +3,8 @@ import { env } from 'hono/adapter'
 import { create115Sdk, listPictures, pickRandom, resolveDownloadUrl, type FileItem } from './sdk/115'
 
 type Bindings = {
-  '115_COOKIE'?: string
-  '115_CID_LIST'?: string
+  'COOKIE_115'?: string
+  'CID_LIST_115'?: string
 }
 const app = new Hono<{ Bindings: Bindings }>()
 
@@ -24,8 +24,8 @@ const parseFolders = (raw: string | undefined) => {
 app.get('/', c => c.text('Hello Hono!'))
 app.get('/pic', async c => {
   const config = env<Bindings>(c)
-  const cookie = config['115_COOKIE']?.trim()
-  const folders = parseFolders(config['115_CID_LIST'])
+  const cookie = config['COOKIE_115']?.trim()
+  const folders = parseFolders(config['CID_LIST_115'])
   const userAgent = c.req.header('User-Agent')?.trim()
   if (!cookie || !folders.length) return c.json({ error: '115 is not configured' }, 500)
   if (cookie.length > 16_384) return c.json({ error: 'invalid 115 configuration' }, 500)
