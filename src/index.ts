@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { env } from 'hono/adapter'
-import { create115Sdk, listPictures, pickRandom, resolveDownloadUrl, type FileItem } from './sdk/115'
+import { create115Sdk, listPictures, pickRandom, resolveDownloadUrl, type FileItem } from './sdk/115/index.js'
 
 type Bindings = {
   'COOKIE_115'?: string

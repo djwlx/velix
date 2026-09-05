@@ -1,4 +1,4 @@
-import { secret } from './secret'
+import { secret } from './secret.js'
 
 const FILE_LIST_URL = 'https://webapi.115.com/files'
 const DOWNLOAD_URL = 'https://proapi.115.com/app/chrome/downurl'
