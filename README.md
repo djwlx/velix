@@ -11,6 +11,29 @@ Set `115_COOKIE` and `115_CID_LIST` as Worker secrets/variables. `115_CID_LIST` 
 
 `GET /pic` recursively searches the configured 115 folders, chooses a random picture, and streams it back. The endpoint returns only image bytes; it does not expose the 115 cookie or download URL.
 
+## Deploy to Vercel
+
+The same `src/index.ts` app is also a valid Vercel Hono entry: Vercel detects the default export and runs every route as a Vercel Function, so no adapter or extra entrypoint file is needed.
+
+1. Push this repository to GitHub/GitLab/Bitbucket and import it at [vercel.com/new](https://vercel.com/new). Vercel auto-detects the project (framework: Hono); no build/output overrides are required.
+2. Add the environment variables in the Vercel project dashboard (**Settings → Environment Variables**), same names/values as the Cloudflare secrets:
+
+   - `115_COOKIE` — the 115 account cookie used by the SDK.
+   - `115_CID_LIST` — the same JSON-array or comma-separated folder CID list from `.env.example`.
+
+3. Deploy and visit `https://<your-project>.vercel.app/` and `https://<your-project>.vercel.app/pic`.
+
+The route table stays identical to Cloudflare Workers (`GET /` and `GET /pic`), so you can run both platforms side by side. The code reads configuration through Hono's runtime-agnostic `env()` helper: bindings on Cloudflare, `process.env` on Vercel.
+
+To preview locally with Vercel's runtime:
+
+```txt
+npm i -g vercel
+vercel link
+vercel pull
+vercel dev
+```
+
 [For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
 
 ```txt

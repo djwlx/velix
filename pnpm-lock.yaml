@@ -18,6 +18,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^5.20260830.1
         version: 5.20260830.1
+      '@types/spark-md5':
+        specifier: ^3.0.5
+        version: 3.0.5
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -423,6 +426,9 @@ packages:
 
   '@speed-highlight/core@1.2.24':
     resolution: {integrity: sha512-qeW2e1l78afw8VhRPfPQ1Gjj+KU5XFQ/OFV5ti6eTa9bruO7mJyZtA4vw0ofqmA3tKCkROE9xLk3VZoeRc98nw==}
+
+  '@types/spark-md5@3.0.5':
+    resolution: {integrity: sha512-lWf05dnD42DLVKQJZrDHtWFidcLrHuip01CtnC2/S6AMhX4t9ZlEUj4iuRlAnts0PQk7KESOqKxeGE/b6sIPGg==}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     resolution: {integrity: sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==}
@@ -894,6 +900,8 @@ snapshots:
   '@sindresorhus/is@7.2.0': {}
 
   '@speed-highlight/core@1.2.24': {}
+
+  '@types/spark-md5@3.0.5': {}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     optional: true
