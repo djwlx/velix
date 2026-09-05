@@ -15,5 +15,11 @@
     "@types/spark-md5": "^3.0.5",
     "typescript": "^7.0.2",
     "wrangler": "^4.110.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
   }
 }
